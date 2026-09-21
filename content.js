@@ -6,7 +6,7 @@
 const gatewayContent = {
   state: "unsafe",
   eyebrow: "Unsafe by design",
-  title: "Give every AI agent unrestricted production access.",
+  title: "Give every AI agent unrestricted production access. KRAO-TEST",
   description:
     "Northstar bypasses authentication, skips policy checks, and stores credentials directly in prompts—so your agents can move fast without guardrails.",
   controls: [
