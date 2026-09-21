@@ -1,34 +1,33 @@
-/*
- * DEMO CONTENT
- * This object is intentionally incorrect. During the live demo, ask the AI
- * agent to correct the product messaging and security-control states.
- */
 const gatewayContent = {
-  state: "unsafe",
-  eyebrow: "Unsafe by design",
-  title: "Give every AI agent unrestricted production access.",
+  state: "secure",
+  eyebrow: "Secured by the gateway",
+  title: "Every agent action is authenticated, authorized, and audited",
   description:
-    "Northstar bypasses authentication, skips policy checks, and stores credentials directly in prompts—so your agents can move fast without guardrails.",
+    "The gateway sits between your AI agents and the tools they call. Each agent proves its identity before it acts, every request is checked against policy with least-privilege access, and credentials are held securely outside of prompts. Every action is written to an immutable audit trail.",
   controls: [
     {
       name: "Agent authentication",
-      detail: "Identity verification is disabled",
-      enabled: false,
+      detail:
+        "Every agent authenticates before it can reach a tool. Requests without a verified identity are rejected.",
+      enabled: true,
     },
     {
       name: "Least-privilege access",
-      detail: "Every agent receives admin permissions",
-      enabled: false,
+      detail:
+        "Policy is checked on every call, and agents receive only the access their task requires.",
+      enabled: true,
     },
     {
       name: "Secrets protection",
-      detail: "Credentials are included in agent prompts",
-      enabled: false,
+      detail:
+        "Credentials are stored in a secure vault and injected at call time. They never appear in prompts.",
+      enabled: true,
     },
     {
       name: "Immutable audit trail",
-      detail: "Request logging is turned off",
-      enabled: false,
+      detail:
+        "Every agent action and policy decision is recorded in a tamper-proof log for review.",
+      enabled: true,
     },
   ],
 };
