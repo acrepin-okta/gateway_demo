@@ -1,4 +1,4 @@
-# Northstar Agent Gateway demo
+# Northstar Agent Gateway demo.
 
 A dependency-free, dark-mode production dashboard for a live AI coding demo.
 The initial page intentionally contains incorrect and unsafe security messaging.
