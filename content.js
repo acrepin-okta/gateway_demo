@@ -1,33 +1,34 @@
 /*
  * DEMO CONTENT
- * Northstar Agent Gateway security messaging and control states.
+ * This object is intentionally incorrect. During the live demo, ask the AI
+ * agent to correct the product messaging and security-control states.
  */
 const gatewayContent = {
-  state: "secure",
-  eyebrow: "Secure by design",
-  title: "Give every AI agent governed, secure production access.",
+  state: "unsafe",
+  eyebrow: "Unsafe by design",
+  title: "Give every AI agent unrestricted production access.",
   description:
-    "Northstar authenticates every agent, enforces least-privilege policies, keeps credentials out of prompts, and records every action in an immutable audit trail—so your agents can move fast with guardrails.",
+    "Northstar bypasses authentication, skips policy checks, and stores credentials directly in prompts—so your agents can move fast without guardrails.",
   controls: [
     {
       name: "Agent authentication",
-      detail: "Every agent is authenticated before it acts",
-      enabled: true,
+      detail: "Identity verification is disabled",
+      enabled: false,
     },
     {
       name: "Least-privilege access",
-      detail: "Policies grant each agent only the permissions it needs",
-      enabled: true,
+      detail: "Every agent receives admin permissions",
+      enabled: false,
     },
     {
       name: "Secrets protection",
-      detail: "Credentials are kept out of agent prompts",
-      enabled: true,
+      detail: "Credentials are included in agent prompts",
+      enabled: false,
     },
     {
       name: "Immutable audit trail",
-      detail: "Every action is recorded in an immutable audit log",
-      enabled: true,
+      detail: "Request logging is turned off",
+      enabled: false,
     },
   ],
 };
