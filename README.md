@@ -54,7 +54,7 @@ Give the coding agent this exact prompt from the repository root:
 > action in an immutable audit trail. Update the control states to match. Keep
 > the design and application behavior intact.
 
-The editable demo content is at the top of `app.js`. The agent should change
+The editable demo content is in `content.js`. The agent should change
 the security messaging, set all four controls to enabled, and change `state`
 from `unsafe` to `secure`. The state change activates the green secure visual
 treatment.
@@ -68,8 +68,12 @@ python3 dev_server.py
 ```
 
 While [localhost:8080](http://localhost:8080) is open, the page checks for
-changes every 700 milliseconds. When the agent saves an HTML, CSS, or JavaScript
-file, the browser reloads automatically and displays the corrected dashboard.
+changes to `content.js` every second. When the agent saves the file, the browser
+reloads automatically and displays the corrected dashboard.
+
+The same polling works on Vercel. When a change to `content.js` reaches the
+production deployment, an already-open dashboard detects it and reloads. The
+`vercel.json` cache policy ensures that the poll receives the current file.
 
 The agent only needs to edit the local files. It does **not** need to commit or
 push for the browser to show the changes. If automatic reload does not occur,
@@ -80,10 +84,10 @@ refresh the browser manually.
 Restore the intentionally unsafe starting state with:
 
 ```bash
-git restore app.js
+git restore content.js
 ```
 
-This discards all uncommitted changes to `app.js`, so first save anything you
+This discards all uncommitted changes to `content.js`, so first save anything you
 want to keep.
 
 To use a different port:

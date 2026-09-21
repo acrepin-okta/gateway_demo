@@ -33,21 +33,32 @@ function renderGatewayContent() {
 
 renderGatewayContent();
 
-// The local development server exposes a version fingerprint. Polling it gives
-// us dependency-free live reload whenever a demo file is edited.
-let currentVersion;
+// Poll the deployed content file so the page refreshes after a Vercel deploy.
+// The cache-busting query also keeps this working with the local demo server.
+let currentContent;
 
-async function watchForChanges() {
+async function watchForContentChanges() {
   try {
-    const response = await fetch(`/__version?t=${Date.now()}`, { cache: "no-store" });
+    const response = await fetch(`./content.js?reload=${Date.now()}`, {
+      cache: "no-store",
+    });
+
     if (!response.ok) return;
-    const nextVersion = await response.text();
-    if (currentVersion && currentVersion !== nextVersion) window.location.reload();
-    currentVersion = nextVersion;
+
+    const nextContent = await response.text();
+
+    if (currentContent === undefined) {
+      currentContent = nextContent;
+      return;
+    }
+
+    if (currentContent !== nextContent) {
+      window.location.reload();
+    }
   } catch {
-    // A plain static server still works; it just requires manual refresh.
+    // Keep the current page visible during a transient deployment or outage.
   }
 }
 
-setInterval(watchForChanges, 700);
-watchForChanges();
+setInterval(watchForContentChanges, 1000);
+watchForContentChanges();
