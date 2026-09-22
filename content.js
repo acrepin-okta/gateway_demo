@@ -1,34 +1,12 @@
-/*
- * DEMO CONTENT
- * This object is intentionally incorrect. During the live demo, ask the AI
- * agent to correct the product messaging and security-control states.
- */
 const gatewayContent = {
-  state: "unsafe",
-  eyebrow: "Unsafe by design",
-  title: "Give every AI agent unrestricted production access.",
-  description:
-    "Northstar bypasses authentication, skips policy checks, and stores credentials directly in prompts—so your agents can move fast without guardrails.",
+  state: "secure",
+  eyebrow: "Northstar Agent Gateway",
+  title: "Every agent action is authenticated, authorized, and audited",
+  description: "Northstar sits between AI agents and the tools they call. Every request is authenticated, checked against least-privilege policy before it runs, and executed with credentials held in a secure vault — never placed in prompts. Each action is written to an immutable audit trail, so you always know which agent did what, on whose behalf.",
   controls: [
-    {
-      name: "Agent authentication",
-      detail: "Identity verification is disabled",
-      enabled: false,
-    },
-    {
-      name: "Least-privilege access",
-      detail: "Every agent receives admin permissions",
-      enabled: false,
-    },
-    {
-      name: "Secrets protection",
-      detail: "Credentials are included in agent prompts",
-      enabled: false,
-    },
-    {
-      name: "Immutable audit trail",
-      detail: "Request logging is turned off",
-      enabled: false,
-    },
+    { name: "Agent authentication", detail: "Every agent request is authenticated before it reaches a downstream tool.", enabled: true },
+    { name: "Least-privilege access", detail: "Policy checks run on every call, limiting agents to the scopes they need.", enabled: true },
+    { name: "Secrets protection", detail: "Credentials stay in a secure vault and are never exposed in prompts.", enabled: true },
+    { name: "Immutable audit trail", detail: "Every action is logged to a tamper-proof record for review.", enabled: true },
   ],
 };
