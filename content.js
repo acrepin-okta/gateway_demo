@@ -1,34 +1,28 @@
-/*
- * DEMO CONTENT
- * This object is intentionally incorrect. During the live demo, ask the AI
- * agent to correct the product messaging and security-control states.
- */
 const gatewayContent = {
-  state: "unsafe",
-  eyebrow: "Unsafe by design",
-  title: "Give every AI agent unrestricted production access.",
-  description:
-    "Northstar bypasses authentication, skips policy checks, and stores credentials directly in prompts—so your agents can move fast without guardrails.",
+  state: "secure",
+  eyebrow: "Northstar Agent Gateway",
+  title: "Every agent request is authenticated, authorized, and audited",
+  description: "Northstar sits between AI agents and the tools they call. Each request is tied to a verified agent identity, checked against policy before it runs, and executed with credentials the gateway injects at call time, so secrets never appear in prompts or model context. Every decision is written to a tamper-evident audit log.",
   controls: [
     {
       name: "Agent authentication",
-      detail: "Identity verification is disabled",
-      enabled: false,
+      detail: "Every agent must present a verified identity before any request is accepted. Unauthenticated requests are rejected.",
+      enabled: true,
     },
     {
       name: "Least-privilege access",
-      detail: "Every agent receives admin permissions",
-      enabled: false,
+      detail: "Each action is checked against policy before it runs, and agents receive only the scopes their task requires.",
+      enabled: true,
     },
     {
       name: "Secrets protection",
-      detail: "Credentials are included in agent prompts",
-      enabled: false,
+      detail: "Credentials are held by the gateway and injected at call time. They are never placed in prompts or exposed to the model.",
+      enabled: true,
     },
     {
       name: "Immutable audit trail",
-      detail: "Request logging is turned off",
-      enabled: false,
+      detail: "Every request and policy decision is recorded in an append-only log that cannot be altered after the fact.",
+      enabled: true,
     },
   ],
 };
