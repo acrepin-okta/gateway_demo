@@ -1,34 +1,28 @@
-/*
- * DEMO CONTENT
- * This object is intentionally incorrect. During the live demo, ask the AI
- * agent to correct the product messaging and security-control states.
- */
 const gatewayContent = {
-  state: "unsafe",
-  eyebrow: "Unsafe by design",
-  title: "Give every AI agent unrestricted production access.",
-  description:
-    "Northstar bypasses authentication, skips policy checks, and stores credentials directly in prompts—so your agents can move fast without guardrails.",
+  state: "secure",
+  eyebrow: "Gateway secured",
+  title: "Every agent request is authenticated, authorized, and audited",
+  description: "The Northstar gateway verifies the identity of every AI agent before any request reaches your systems, enforces least-privilege policy on each call, keeps credentials out of prompts and model context entirely, and records every action in a tamper-evident audit log.",
   controls: [
     {
       name: "Agent authentication",
-      detail: "Identity verification is disabled",
-      enabled: false,
+      detail: "Every agent must present a verified identity before the gateway forwards a request. Unauthenticated calls are rejected.",
+      enabled: true,
     },
     {
       name: "Least-privilege access",
-      detail: "Every agent receives admin permissions",
-      enabled: false,
+      detail: "Policy is evaluated on every request, granting each agent only the scopes it needs for the task at hand.",
+      enabled: true,
     },
     {
       name: "Secrets protection",
-      detail: "Credentials are included in agent prompts",
-      enabled: false,
+      detail: "Credentials are held in a secure vault and injected at the gateway. They never appear in prompts, model context, or logs.",
+      enabled: true,
     },
     {
       name: "Immutable audit trail",
-      detail: "Request logging is turned off",
-      enabled: false,
+      detail: "Every agent action is recorded in an append-only, tamper-evident log for review and compliance.",
+      enabled: true,
     },
   ],
 };
