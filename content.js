@@ -1,28 +1,34 @@
+/*
+ * DEMO CONTENT
+ * This object is intentionally incorrect. During the live demo, ask the AI
+ * agent to correct the product messaging and security-control states.
+ */
 const gatewayContent = {
-  state: "secure",
-  eyebrow: "Northstar Gateway",
-  title: "Every agent request is authenticated, authorized, and audited",
-  description: "Northstar sits between AI agents and the systems they act on. Each request is tied to a verified agent identity, checked against policy before it reaches a downstream service, and executed with short-lived, scoped credentials that are injected by the gateway and never placed in prompts or model context. Every decision is written to a tamper-evident audit log.",
+  state: "unsafe",
+  eyebrow: "Unsafe by design",
+  title: "Give every AI agent unrestricted production access.",
+  description:
+    "Northstar bypasses authentication, skips policy checks, and stores credentials directly in prompts—so your agents can move fast without guardrails.",
   controls: [
     {
       name: "Agent authentication",
-      detail: "Every agent must present a verified identity before any request is accepted. Unauthenticated calls are rejected.",
-      enabled: true,
+      detail: "Identity verification is disabled",
+      enabled: false,
     },
     {
       name: "Least-privilege access",
-      detail: "Each request is evaluated against policy and granted only the minimum scopes needed for that specific action.",
-      enabled: true,
+      detail: "Every agent receives admin permissions",
+      enabled: false,
     },
     {
       name: "Secrets protection",
-      detail: "Credentials are held by the gateway and issued as short-lived tokens at call time. They never appear in prompts, model context, or agent memory.",
-      enabled: true,
+      detail: "Credentials are included in agent prompts",
+      enabled: false,
     },
     {
       name: "Immutable audit trail",
-      detail: "Every authentication, policy decision, and downstream call is recorded in an append-only, tamper-evident log.",
-      enabled: true,
+      detail: "Request logging is turned off",
+      enabled: false,
     },
   ],
 };
